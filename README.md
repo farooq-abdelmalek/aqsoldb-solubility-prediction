@@ -170,7 +170,7 @@ requirements.txt    Python dependencies
 - **Generalization:** Group-aware random splitting does not test extrapolation to unseen molecular scaffolds or an independent external dataset.
 - **Dataset uncertainty:** AqSolDB combines experimental measurements from multiple sources with varying reliability.
 - **Chemical applicability:** Predictions for molecules outside the training data's chemical domain may be unreliable.
-- **Reproducibility:** The dataset checksum and frozen model parameters are recorded, but most Python dependency versions are not yet pinned.
+- **Reproducibility:** The dataset checksum and frozen model parameters are recorded, but direct Python dependencies are pinned, but transitive dependencies are not fully locked.
 - **Intended use:** The model is a research demonstration, not a validated regulatory, clinical, or pharmaceutical decision-making tool.
 
 ## Research records
@@ -193,4 +193,4 @@ https://doi.org/10.1038/s41597-019-0151-1
 
 Original dataset: https://doi.org/10.7910/DVN/OVHAW8
 
-Dataset license: CC0 1.0. A separate license for this project's original source code has not yet been selected.
+Dataset license: CC0 1.0. Original project source code is licensed under MIT (see LICENSE).
