@@ -129,6 +129,28 @@ nextflow run . \
 
 The model file is generated locally and is not committed to Git. The workflow does not rerun hyperparameter tuning or the held-out test evaluation.
 
+## Experiment Tracking with MLflow
+
+MLflow was used to track model benchmarking, group-aware cross-validation, and Optuna hyperparameter optimization.
+
+The experiment tracking workflow records:
+
+- Model configurations and hyperparameters.
+- Cross-validation metrics (R², RMSE, MAE).
+- Individual Optuna trials and their performance.
+- Final evaluation metrics and model artifacts.
+
+### Optuna hyperparameter optimization
+
+The screenshot below shows 50 recorded Optuna trials (25 XGBoost and 25 LightGBM), ranked by mean cross-validation R².
+
+The best recorded configuration was **XGBoost trial 24**, achieving a mean CV R² of **0.80594**. After model selection, the final model achieved **R² = 0.80436** on the held-out test set.
+
+![MLflow Optuna experiment tracking](docs/images/mlflow-optuna-runs.png)
+
+The original MLflow tracking database is stored locally under `tracking/` and excluded from Git. This screenshot provides evidence of the experiments without distributing the tracking database.
+
+The tracking implementation is available in `scripts/benchmark_models.py`, `scripts/cross_validate.py`, `scripts/tune_models.py`, and `scripts/final_evaluation.py`.
 ## Automated tests
 
 Four modules provide 20 unit tests covering:
