@@ -25,3 +25,7 @@ pipeline_outputs/
 # Operating system files
 .DS_Store
 Thumbs.db
+
+# Nextflow runtime files and execution cache
+.nextflow*
+work/

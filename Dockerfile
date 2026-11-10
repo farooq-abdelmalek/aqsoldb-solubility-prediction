@@ -13,3 +13,10 @@ RUN apt-get update && \
 COPY requirements.txt .
 
 RUN python -m pip install --no-cache-dir -r requirements.txt
+
+# Include application code for isolated Nextflow processes
+COPY src/ /app/src/
+COPY scripts/ /app/scripts/
+
+# Allow Python to import project modules from any working directory
+ENV PYTHONPATH=/app
