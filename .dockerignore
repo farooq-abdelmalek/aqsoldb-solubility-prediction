@@ -1,0 +1,13 @@
+.venv/
+.git/
+.vscode/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.pytest_cache/
+data/
+results/
+pipeline_outputs/
+mlruns/
+*.joblib
+tracking/

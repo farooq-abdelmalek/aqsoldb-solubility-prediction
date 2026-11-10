@@ -1,0 +1,11 @@
+{
+    "model": "LightGBM",
+    "feature_set": "hybrid",
+    "selection_metric": "val_r2",
+    "validation_r2": 0.8074468822369775,
+    "validation_rmse": 1.0493679230182182,
+    "validation_mae": 0.700114998938327,
+    "mlflow_run_id": "1d44a4161c72488fac3ab31cd8d51ef2",
+    "random_state": 42,
+    "selection_split": "validation"
+}

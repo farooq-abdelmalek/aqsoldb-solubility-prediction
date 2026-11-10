@@ -1,0 +1,19 @@
+{
+    "model": "LightGBM",
+    "feature_set": "hybrid",
+    "selection_metric": "mean_r2",
+    "cv_mean_r2": 0.8032911674964581,
+    "cv_std_r2": 0.008516963681225377,
+    "cv_mean_rmse": 1.0489382738295447,
+    "cv_mean_mae": 0.6988113554367034,
+    "cv_method": "GroupKFold",
+    "cv_folds": 3,
+    "random_state": 42,
+    "selection_split": "development_cross_validation",
+    "mlflow_fold_run_ids": [
+        "ee095b69d2cc4208a2b2d7d915348c1f",
+        "da0b907284b14fb9b8b93b81ed3ae361",
+        "f489908162b640a1a25585e443913548"
+    ],
+    "test_evaluated": false
+}

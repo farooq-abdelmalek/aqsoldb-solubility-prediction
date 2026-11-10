@@ -1,0 +1,24 @@
+{
+    "model": "XGBoost",
+    "feature_set": "hybrid",
+    "variant": "optuna_tuned",
+    "hyperparameters": {
+        "n_estimators": 800,
+        "learning_rate": 0.05410617592535347,
+        "max_depth": 10,
+        "subsample": 0.7239922509881979,
+        "colsample_bytree": 0.9148701873020211,
+        "reg_lambda": 2.226216603690511,
+        "min_child_weight": 2
+    },
+    "selection_metric": "mean_cv_r2",
+    "cv_mean_r2": 0.8059422943036835,
+    "cv_method": "GroupKFold",
+    "cv_folds": 3,
+    "random_state": 42,
+    "selection_split": "development_cv_after_optuna",
+    "dataset_sha256": "7c47e021d03a5720f53cfddb7aef90c8911ea276a36306c839798733d8630332",
+    "optuna_trial": 24,
+    "mlflow_run_id": "c6d0aef2221840609506f8b3a589fb39",
+    "test_evaluated": false
+}

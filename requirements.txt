@@ -1,0 +1,12 @@
+numpy
+pandas
+scipy
+matplotlib
+seaborn
+scikit-learn
+rdkit
+xgboost
+lightgbm
+joblib
+mlflow==3.18.0
+optuna==5.0.0

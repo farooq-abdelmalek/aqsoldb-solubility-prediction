@@ -1,0 +1,13 @@
+{
+    "model": "XGBoost",
+    "feature_set": "hybrid",
+    "n_train": 8967,
+    "n_test": 1013,
+    "selection_cv_mean_r2": 0.8059422943036835,
+    "mlflow_run_id": "7a4ebce70a254d33b7bddafe6b3ee426",
+    "dataset_sha256": "7c47e021d03a5720f53cfddb7aef90c8911ea276a36306c839798733d8630332",
+    "test_r2": 0.8043631018550039,
+    "test_rmse": 1.0553891423503745,
+    "test_mae": 0.6948228803601102,
+    "training_seconds": 15.460223751999365
+}
