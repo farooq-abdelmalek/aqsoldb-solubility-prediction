@@ -1,0 +1,25 @@
+name: AqSolDB Tests
+
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  unit-tests:
+    name: Dockerized Python unit tests
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Build Docker image
+        run: docker build -t aqsoldb-solubility:ci .
+
+      - name: Run all unit tests
+        run: |
+          docker run --rm \
+            --mount type=bind,source="$PWD/tests",target=/app/tests,readonly \
+            aqsoldb-solubility:ci \
+            python -m unittest discover -s tests -p "test_*.py" -v
