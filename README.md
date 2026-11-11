@@ -1,5 +1,7 @@
 # AqSolDB — Aqueous Solubility Prediction
 
+[![AqSolDB CI](https://github.com/farooq-abdelmalek/aqsoldb-solubility-prediction/actions/workflows/tests.yml/badge.svg)](https://github.com/farooq-abdelmalek/aqsoldb-solubility-prediction/actions/workflows/tests.yml)
+
 Reproducible molecular machine-learning pipeline for predicting aqueous solubility (LogS) from SMILES, using RDKit, scikit-learn, XGBoost, LightGBM, Optuna, MLflow, Docker, and Nextflow DSL2.
 
 ## Results
@@ -82,6 +84,41 @@ Selected baseline CV results:
 The two leading model families are subsequently tuned with Optuna. The frozen selected XGBoost configuration achieves **0.8059 mean CV R²**.
 
 This does not establish statistically significant superiority over LightGBM. Model selection and the final test result are documented separately.
+
+## Scientific result figures
+
+These visualizations use the archived experiment results in `results/`.
+No model training, hyperparameter tuning, or new predictions are performed.
+
+### 1. Held-out aqueous solubility prediction
+
+![Observed versus predicted LogS for 1,013 held-out molecules](docs/figures/01_observed_vs_predicted.png)
+
+The selected XGBoost hybrid model achieved **R² = 0.8044**, **RMSE = 1.0554**, and
+**MAE = 0.6948** on **1,013 held-out molecules**. The dashed diagonal represents
+perfect prediction. The split is molecular-identity grouped, not scaffold-held-out.
+
+### 2. Baseline model and molecular representation comparison
+
+![Three-fold cross-validation R-squared heatmap for 15 baseline model-feature combinations](docs/figures/02_baseline_cv_heatmap.png)
+
+The heatmap compares the **15 untuned baseline configurations** using mean
+three-fold development cross-validation R². The outlined cell marks the
+**XGBoost + Hybrid** family and representation subsequently selected after Optuna
+optimization (**tuned CV R² = 0.8059**). The outlined cell itself shows its
+*baseline* score, so it should not be interpreted as the tuned result.
+
+### 3. Prediction error by observed solubility
+
+![Mean absolute error and signed error by observed LogS quintile](docs/figures/03_error_by_solubility.png)
+
+The held-out molecules are divided into five similarly sized groups by observed
+LogS. This descriptive error analysis exposes larger errors among the least
+soluble compounds and systematic prediction bias at both solubility extremes.
+Positive signed error means **predicted LogS exceeds observed LogS**.
+
+Regenerate the figures with `python scripts/make_result_figures.py`. Vector SVG
+versions are stored beside the PNGs in `docs/figures/`.
 
 ## Reproduce training and inference
 
